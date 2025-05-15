@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
+import { cn } from "../libs/utils";
+
 
 // Theme toggle component to switch between dark and light modes
 export const ThemeToggle = () => {
@@ -35,7 +37,9 @@ export const ThemeToggle = () => {
   // Return a button that toggles the theme when clicked
   // The icon changes based on the current mode using a ternary operator
   return (
-    <button onClick={toggleTheme}>
+    <button onClick={toggleTheme} className={cn("fixed max-sm:hidden top-5 right-5 z-50 rounded-full transition-colors duration-300",
+      "focus:outline-hidden"
+    )}>
       {isDarkMode ? (
         <Sun className="h-6 w-6 text-yellow-500" />
       ) : (
