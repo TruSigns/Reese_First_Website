@@ -8,6 +8,12 @@ export const ThemeToggle = () => {
   // State to track whether dark mode is enabled
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+
+/**
+ * On component mount, check the stored theme preference in localStorage.
+ * If the theme is "dark", enable dark mode by updating state and adding the "dark" class to the HTML root.
+ * If no preference is set or it's not "dark", default to light mode and update localStorage accordingly.
+ */
   useEffect(() => {
     const storeTheme = localStorage.getItem("theme");
     if (storeTheme === "dark") {
