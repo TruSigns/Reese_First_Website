@@ -27,6 +27,8 @@ export const ThemeToggle = () => {
 
   // Function to toggle the theme mode
   const toggleTheme = () => {
+
+    // D.R.Y method is HERE. PLEASE REDUCE CODE LINE IN FUTURE 
     // If dark mode is currently enabled, remove the 'dark' class
     // If dark mode is not enabled, add the 'dark' class
     if (isDarkMode) {
@@ -38,6 +40,7 @@ export const ThemeToggle = () => {
       localStorage.setItem("theme", "dark"); // to keep setting Dark
       setIsDarkMode(true); // Set state to dark mode
     }
+
   };
 
   // Return a button that toggles the theme when clicked
