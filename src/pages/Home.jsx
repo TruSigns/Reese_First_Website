@@ -1,5 +1,6 @@
 import  ThemeToggle  from "../components/ThemeToggle";
 import StarBackground from "../components/StarBackground";
+import NavBar from "../components/NavBar";
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
       <StarBackground/>
 
       {/* Navbar */}
+      <NavBar />
 
       {/* Main content */}
 
