@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { cn } from "../libs/utils";
+import { cn } from "../libs/utils"; // Utility function for conditional className merging
 
 // Define navigation items with display names and anchor links
 const navItems = [
@@ -11,34 +11,40 @@ const navItems = [
 ];
 
 const NavBar = () => {
-  const [isScrolled, setIsScrolled] = useState("false");
+  const [isScrolled, setIsScrolled] = useState("false"); // Track scroll state for navbar styling
 
   useEffect(() => {
+    // Function to handle scroll behavior
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 10); // Set to true if user scrolls down more than 10px
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll); // Attach scroll listener on mount
+    return () => window.removeEventListener("scroll", handleScroll); // Clean up on unmount
   }, []);
+
   return (
-    // Navigation bar p
+    // Navigation bar positioned at top with transition styles
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        "fixed w-full z-40 transition-all duration-300", // Base styling
+        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5" // Shrink and blur on scroll
       )}
     >
       <div className="contianer flex intems-center justify-between">
-        <a className="text-xl font-bold text-primary flex items-center"
-        href="#hero">
+        {/* Brand/Logo linking to hero section */}
+        <a
+          className="text-xl font-bold text-primary flex items-center"
+          href="#hero"
+        >
           <span className="relative z-10">
-            <span className="text-glow text-foreground"> Signs_Corp </span> {""} Portfolio
+            <span className="text-glow text-foreground"> Signs_Corp </span> {""}{" "}
+            Portfolio
           </span>
         </a>
 
-        {/* Desktop version */}
-        {/* Mobile version */}
+        {/* Desktop version (to be implemented) */}
+        {/* Mobile version (to be implemented) */}
       </div>
     </nav>
   );
