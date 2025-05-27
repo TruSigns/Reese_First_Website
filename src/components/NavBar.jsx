@@ -32,7 +32,7 @@ const NavBar = () => {
         isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5" // Shrink and blur on scroll
       )}
     >
-      <div className="contianer flex intems-center justify-between">
+      <div className="container flex intems-center justify-between">
         {/* Brand/Logo linking to hero section */}
         <a
           className="text-xl font-bold text-primary flex items-center"
@@ -45,7 +45,7 @@ const NavBar = () => {
         </a>
 
         {/* Desktop version (to be implemented) */}
-        <div className="hidden-md : flex space-x-8">
+        <div className="hidden md:flex space-x-8">
           {navItems.map((item, key) => (
             <a
               key={key}
