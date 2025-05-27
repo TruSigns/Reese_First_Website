@@ -12,6 +12,7 @@ const navItems = [
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState("false"); // Track scroll state for navbar styling
+  const [isMenuOpen, setIsMenuOpen] = useState("false"); // Track scroll state for navbar styling
 
   useEffect(() => {
     // Function to handle scroll behavior
@@ -44,7 +45,34 @@ const NavBar = () => {
         </a>
 
         {/* Desktop version (to be implemented) */}
+        <div className="hidden-md : flex space-x-8">
+          {navItems.map((item, key) => (
+            <a
+              key={key}
+              href={item.href}
+              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+
         {/* Mobile version (to be implemented) */}
+        <div className={cn("fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center", "transtion-all duration-300 md:hidden",
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none" 
+        )}>
+          <div className="hidden-md: flex space-x-8">
+            {navItems.map((item, key) => (
+              <a
+                key={key}
+                href={item.href}
+                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </nav>
   );
